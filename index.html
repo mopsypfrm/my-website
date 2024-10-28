@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Losowanie mnożenia, dodawania i odejmowania</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="toggle-sidebar" onclick="toggleSidebar()">☰</button>
+    <div class="sidebar" id="sidebar">
+        <h2>Panel boczny</h2>
+        <button id="close-sidebar" onclick="toggleSidebar()">✖</button>
+        <label for="tryb">Wybierz tryb:</label>
+        <select id="tryb" onchange="zmienTryb()">
+            <option value="mnozenie">Mnożenie</option>
+            <option value="dodawanie">Dodawanie</option>
+            <option value="odejmowanie">Odejmowanie</option>
+        </select>
+        
+        <label for="difficulty">Wybierz poziom trudności:</label>
+        <select id="difficulty" onchange="ustawPoziom()">
+            <option value="1">Łatwy (1-10)</option>
+            <option value="2">Średni (10-20)</option>
+            <option value="3">Trudny (20-50)</option>
+        </select>
+
+        <button id="dark-mode-button" onclick="toggleDarkMode()">Ciemny tryb</button>
+    </div>
+
+    <div class="container">
+        <h1 id="naglówek">Mnożenie losowych liczb</h1>
+        <p id="question">Wciśnij przycisk, aby wylosować działanie</p>
+        <button id="losuj-button" onclick="wylosuj()">Losuj liczby</button>
+
+        <div id="input-section" style="display: none;">
+            <label for="user-result">Podaj wynik:</label>
+            <input type="number" id="user-result" placeholder="Wpisz wynik">
+            <button onclick="sprawdz()">Sprawdź</button>
+        </div>
+
+        <p id="feedback"></p>
+        <p id="licznik">Poprawne odpowiedzi: 0</p>
+        <p id="czas">Czas: 10s</p>
+        
+        <h2>Historia odpowiedzi</h2>
+        <ul id="historia"></ul>
+    </div>
+    <audio id="correct-sound" src="correct.mp3" preload="auto"></audio>
+    <audio id="wrong-sound" src="wrong.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
